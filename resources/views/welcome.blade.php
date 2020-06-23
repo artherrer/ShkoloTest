@@ -30,32 +30,14 @@
             margin: 0;
         }
 
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
         .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
+            position: relative;
+            /* right: 10px; */
+            /* top: 18px; */
+            float: right;
+            width: 100%;
+            height: 40px;
+            margin-top: 15px;
         }
 
         .links > a {
@@ -66,46 +48,44 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+            float: right;
         }
 
-        .m-b-md {
-            margin-bottom: 30px;
-        }
     </style>
 </head>
     <body>
-        <div class="flex-center position-ref full-height" id="app">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/hyperlinks') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        <div class="container " id="app">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            <div class="row">
+                <div class="col-md-12">
+                    @if (Route::has('login'))
+                        <div class="top-right links">
+                            @auth
+                                <a href="{{ url('/hyperlinks') }}">Home</a>
+                            @else
 
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}">Register</a>
+                                @endif
 
-            <div class="content mt-5">
+                                <a href="{{ route('login') }}">Login</a>
 
-
-
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="alert alert-warning mt-5" role="alert">
-                                Hello! Here you can add custom hyperlinks for share with everyone. <br> If you want to add your own hyperlinks, you can signup and login.
-                            </div>
+                            @endauth
                         </div>
+                    @endif
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="alert alert-warning" role="alert">
+                        Hello! Here you can add custom hyperlinks for share with everyone. <br> If you want to add your own hyperlinks, you can signup and login.
                     </div>
                 </div>
-
-                <hyperlink-index-component></hyperlink-index-component>
             </div>
+
+            <hyperlink-index-component class="mb-5"></hyperlink-index-component>
         </div>
     </body>
 </html>
